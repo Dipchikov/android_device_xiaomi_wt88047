@@ -17,9 +17,11 @@
 
 set -e
 
+export INITIAL_COPYRIGHT_YEAR=2015
+
 # Required!
 DEVICE=wt88047
-VENDOR=wingtech
+VENDOR=xiaomi
 
 # Load extractutils and do some sanity checks
 MY_DIR="${BASH_SOURCE%/*}"
@@ -54,10 +56,7 @@ echo "endif" >> "$PRODUCTMK"
 
 cat << EOF >> "$ANDROIDMK"
 endif
-
 EOF
-
-printf '\n%s\n' "\$(call inherit-product, vendor/qcom/binaries/msm8916-32/graphics/graphics-vendor.mk)" >> "$PRODUCTMK"
 
 # We are done!
 write_footers
